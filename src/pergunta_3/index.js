@@ -1,3 +1,15 @@
+textoMenorFaturamento = ` - O dia ${calculaFaturamentos()[0].dia} teve o menor faturamento com : ${calculaFaturamentos()[0].valor}`;
+
+textoMaiorFaturamento = ` - O dia ${calculaFaturamentos()[1].dia} teve o maior faturamento com : ${calculaFaturamentos()[1].valor}`;
+
+textoMediaFaturamento = ` - A média do faturamento é  ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
+
+console.log(
+    textoMenorFaturamento + ";\n" +
+    textoMaiorFaturamento + ";\n" +
+    textoMediaFaturamento + ";"
+);
+
 function calculaFaturamentos() {
     const dataJson = arquivoJson();
     const valorResultado = [];
@@ -10,8 +22,6 @@ function calculaFaturamentos() {
 
     return valorResultado;
 }
-
-
 
 function menorFaturamento(objetoJson) {
     var valorAtual = {
@@ -79,27 +89,6 @@ function mediaFaturamento(objetoJson) {
     })
 
     return valorAtual;
-}
-
-function lerArquivoJson() {
-    var path = require('path');
-    var fs = require('fs');
-
-    var dataExterna;
-
-    fs.readFile(path.resolve(__dirname, 'dados.json'), "utf-8", function (err, data) {
-        if (err) {
-            return console.log("Erro:\n" + err);
-        }
-
-        JSON.parse(data)
-
-        dataExterna = "Texto";
-    })
-
-    console.log(
-        dataExterna
-    )
 }
 
 function arquivoJson() {
@@ -227,15 +216,3 @@ function arquivoJson() {
 
     return objetoJson
 }
-
-textoMenorFaturamento = ` - O dia ${calculaFaturamentos()[0].dia} teve o menor faturamento com : ${calculaFaturamentos()[0].valor}`;
-
-textoMaiorFaturamento = ` - O dia ${calculaFaturamentos()[1].dia} teve o maior faturamento com : ${calculaFaturamentos()[1].valor}`;
-
-textoMediaFaturamento = ` - A média do faturamento é  ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
-
-console.log(
-    textoMenorFaturamento + ";\n" +
-    textoMaiorFaturamento + ";\n" +
-    textoMediaFaturamento + ";"
-);
