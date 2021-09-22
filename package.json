@@ -1,0 +1,19 @@
+{
+  "name": "projetotargesistemas",
+  "version": "1.0.0",
+  "description": "Projeto para responder as perguntas do processo seletivo da Target Sistemas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martex84/projeto_Target-Sistemas.git"
+  },
+  "author": "Martex84",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martex84/projeto_Target-Sistemas/issues"
+  },
+  "homepage": "https://github.com/martex84/projeto_Target-Sistemas#readme"
+}
