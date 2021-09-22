@@ -1,3 +1,27 @@
+function pergunta2() {
+
+    realizarPergunta()
+
+}
+
+function realizarPergunta() {
+    const readline = require('readline');
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.question('\n\nEscolha um numero para iniciar a sequência de Finobacci: ', (resposta) => {
+
+        if (resposta >= 0) {
+            rl.close();
+            console.log(sequenciaFibonacci(resposta));
+        }
+
+    });
+}
+
 function sequenciaFibonacci(valorDesejado) {
     let valorAnterior = 0;
     let valorPosterior = 1;
@@ -8,15 +32,13 @@ function sequenciaFibonacci(valorDesejado) {
         valorTransicao = valorPosterior;
         valorPosterior = valorAnterior + valorPosterior;
 
-        console.log(`Valor Anterior = ${valorAnterior} + Valor Atual = ${valorTransicao} == ${valorPosterior}`)
-
         valorAnterior = valorTransicao;
 
         if (valorDesejado == valorPosterior) resultado = true;
     }
 
-    if (resultado == true) return `\n\nO valor ${valorDesejado} está presente na sequência`;
-    else return `\n\nO valor ${valorDesejado} não está presente na sequência`;
+    if (resultado == true) return `O valor ${valorDesejado} está presente na sequência\n\n`;
+    else return `O valor ${valorDesejado} não está presente na sequência\n\n`;
 }
 
-console.log(sequenciaFibonacci(21));
+module.exports = pergunta2();

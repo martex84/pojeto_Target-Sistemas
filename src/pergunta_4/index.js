@@ -1,16 +1,18 @@
-var textoResposta = `
+function pergunta_4() {
+    var textoResposta = `
     - O valor total mensal da distribuidora é de : ${calcularPorcentagem()[0].somaTotal}\n
     - A porcentagem para os estados são de:\n`;
 
-var textoRepostaEstado = "";
+    var textoRepostaEstado = "";
 
-for (var i = 1; i < calcularPorcentagem().length; i++) {
-    textoRepostaEstado = textoRepostaEstado + `
+    for (var i = 1; i < calcularPorcentagem().length; i++) {
+        textoRepostaEstado = textoRepostaEstado + `
         -${calcularPorcentagem()[i].estado} com porcetagem de ${calcularPorcentagem()[i].porcentagem}% 
     `
-}
+    }
 
-console.log(textoResposta + textoRepostaEstado)
+    console.log(textoResposta + textoRepostaEstado)
+}
 
 function calcularPorcentagem() {
     var valoresPorcentual = [{
@@ -64,3 +66,5 @@ function arquivoFaturamento() {
 
     return arquivo
 }
+
+module.exports = pergunta_4();

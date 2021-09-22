@@ -1,11 +1,32 @@
-const valorArray = Object.assign(invertArray("Palavra Invertida")); //Digite a palavra desejada
+function pergunta_5() {
+    const resposta = realizarPergunta();
 
-var textoFinal = `
+    const valorArray = Object.assign(invertArray(resposta));
+
+    var textoFinal = `
     - Palavra original : ${valorArray.palavra}\n
-    - Palavra invertida: ${valorArray.palavraInvertida}
-`;
+    - Palavra invertida: ${valorArray.palavraInvertida}`;
 
-console.log(textoFinal)
+    console.log(textoFinal)
+}
+
+function realizarPergunta() {
+    const readline = require('readline');
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.question('\n\nEscolha uma palavra para a inverter : ', (resposta) => {
+
+        if (resposta != null) {
+            rl.close();
+            return resposta;
+        }
+
+    });
+}
 
 function invertArray(stringValor) {
     const arrayString = [...convertStringArray(stringValor)]
@@ -37,3 +58,5 @@ function convertStringArray(stringValor) {
 
     return stringArray;
 }
+
+module.exports = pergunta_5();

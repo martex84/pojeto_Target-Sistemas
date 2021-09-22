@@ -6,10 +6,9 @@ function pergunta1() {
     while (k < indice) {
         k = k + 1;
         soma = soma + k;
-        console.log(`K = ${k} || Soma = ${soma}`)
     }
 
-    return soma
+    console.log(soma);
 }
 
-console.log(pergunta1());
+module.exports = pergunta1();

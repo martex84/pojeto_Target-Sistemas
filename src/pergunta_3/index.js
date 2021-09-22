@@ -1,14 +1,16 @@
-textoMenorFaturamento = ` - O dia ${calculaFaturamentos()[0].dia} teve o menor faturamento com : ${calculaFaturamentos()[0].valor}`;
+function pergunta_3() {
+    textoMenorFaturamento = ` - O dia ${calculaFaturamentos()[0].dia} teve o menor faturamento com : ${calculaFaturamentos()[0].valor}`;
 
-textoMaiorFaturamento = ` - O dia ${calculaFaturamentos()[1].dia} teve o maior faturamento com : ${calculaFaturamentos()[1].valor}`;
+    textoMaiorFaturamento = ` - O dia ${calculaFaturamentos()[1].dia} teve o maior faturamento com : ${calculaFaturamentos()[1].valor}`;
 
-textoMediaFaturamento = ` - A média do faturamento é  ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
+    textoMediaFaturamento = ` - A média do faturamento é  ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
 
-console.log(
-    textoMenorFaturamento + ";\n" +
-    textoMaiorFaturamento + ";\n" +
-    textoMediaFaturamento + ";"
-);
+    console.log(
+        textoMenorFaturamento + ";\n" +
+        textoMaiorFaturamento + ";\n" +
+        textoMediaFaturamento + ";"
+    );
+}
 
 function calculaFaturamentos() {
     const dataJson = arquivoJson();
@@ -216,3 +218,5 @@ function arquivoJson() {
 
     return objetoJson
 }
+
+module.exports = pergunta_3();
