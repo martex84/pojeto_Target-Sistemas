@@ -37,8 +37,8 @@ function sequenciaFibonacci(valorDesejado) {
         if (valorDesejado == valorPosterior) resultado = true;
     }
 
-    if (resultado == true) return `O valor ${valorDesejado} está presente na sequência\n\n`;
-    else return `O valor ${valorDesejado} não está presente na sequência\n\n`;
+    if (resultado == true) return `  - O valor ${valorDesejado} está presente na sequência\n\n`;
+    else return `  - O valor ${valorDesejado} não está presente na sequência\n\n`;
 }
 
 module.exports = pergunta2();

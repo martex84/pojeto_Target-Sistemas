@@ -8,7 +8,9 @@ function pergunta1() {
         soma = soma + k;
     }
 
-    console.log(soma);
+    console.log(
+        `\n - O resultado da Soma é : ${soma} \n`
+    );
 }
 
 module.exports = pergunta1();

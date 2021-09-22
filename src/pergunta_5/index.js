@@ -13,9 +13,9 @@ function pergunta_5() {
 
         const valorArray = Object.assign(invertArray(valor));
 
-        var textoFinal = `
-        - Palavra original : ${valorArray.palavra}\n
-        - Palavra invertida: ${valorArray.palavraInvertida}`;
+        let textoFinal =
+            `  - Palavra original : ${valorArray.palavra}\n` +
+            `  - Palavra invertida: ${valorArray.palavraInvertida}\n`;
 
         console.log(textoFinal)
 
@@ -25,12 +25,12 @@ function pergunta_5() {
 function invertArray(stringValor) {
     const arrayString = [...convertStringArray(stringValor)]
     const tamanhoArrayString = arrayString.length - 1;
-    var stringFinal = {
+    let stringFinal = {
         palavra: stringValor,
         palavraInvertida: ""
     }
 
-    for (var i = tamanhoArrayString; i >= 0; i--) {
+    for (let i = tamanhoArrayString; i >= 0; i--) {
         stringFinal.palavraInvertida = stringFinal.palavraInvertida + arrayString[i];
     }
 
@@ -38,11 +38,11 @@ function invertArray(stringValor) {
 }
 
 function convertStringArray(stringValor) {
-    var temporario = stringValor;
-    var tamanhoString = temporario.length;
-    var stringArray = [];
+    let temporario = stringValor;
+    let tamanhoString = temporario.length;
+    let stringArray = [];
 
-    for (var i = 0; i < tamanhoString; i++) {
+    for (let i = 0; i < tamanhoString; i++) {
         if (i === tamanhoString - 1) {
             stringArray.push(temporario.substring(i))
         } else {

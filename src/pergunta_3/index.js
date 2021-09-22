@@ -1,9 +1,9 @@
 function pergunta_3() {
-    textoMenorFaturamento = ` - O dia ${calculaFaturamentos()[0].dia} teve o menor faturamento com : ${calculaFaturamentos()[0].valor}`;
+    textoMenorFaturamento = ` - O dia ${calculaFaturamentos()[0].dia} teve o menor faturamento com : R$ ${calculaFaturamentos()[0].valor}`;
 
-    textoMaiorFaturamento = ` - O dia ${calculaFaturamentos()[1].dia} teve o maior faturamento com : ${calculaFaturamentos()[1].valor}`;
+    textoMaiorFaturamento = ` - O dia ${calculaFaturamentos()[1].dia} teve o maior faturamento com : R$ ${calculaFaturamentos()[1].valor}`;
 
-    textoMediaFaturamento = ` - A média do faturamento é  ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
+    textoMediaFaturamento = ` - A média do faturamento é R$ ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
 
     console.log("\n\n" +
         textoMenorFaturamento + ";\n" +
@@ -26,7 +26,7 @@ function calculaFaturamentos() {
 }
 
 function menorFaturamento(objetoJson) {
-    var valorAtual = {
+    let valorAtual = {
         dia: "",
         valor: 0
     };
@@ -49,7 +49,7 @@ function menorFaturamento(objetoJson) {
 }
 
 function maiorFaturamento(objetoJson) {
-    var valorAtual = {
+    let valorAtual = {
         dia: "",
         valor: 0
     };
@@ -70,12 +70,12 @@ function maiorFaturamento(objetoJson) {
 }
 
 function mediaFaturamento(objetoJson) {
-    var valorAtual = {
+    let valorAtual = {
         contagemDia: 0,
         media: 0
     }
-    var contagemMedia = 0;
-    var media = 0;
+    let contagemMedia = 0;
+    let media = 0;
 
     objetoJson.forEach(valor => {
         if (valor.valor != 0) {
@@ -96,8 +96,8 @@ function mediaFaturamento(objetoJson) {
 }
 
 function lerArquivoJson() {
-    var path = require('path');
-    var fs = require('fs');
+    let path = require('path');
+    let fs = require('fs');
 
     try {
         const data = fs.readFileSync(path.resolve(__dirname, 'dados.json'), "utf-8")
