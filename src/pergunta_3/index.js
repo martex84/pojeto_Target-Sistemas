@@ -5,15 +5,15 @@ function pergunta_3() {
 
     textoMediaFaturamento = ` - A média do faturamento é  ${calculaFaturamentos()[2].media}, cotendo ${calculaFaturamentos()[2].contagemDia} dias que superam a média mensal`
 
-    console.log(
+    console.log("\n\n" +
         textoMenorFaturamento + ";\n" +
         textoMaiorFaturamento + ";\n" +
-        textoMediaFaturamento + ";"
+        textoMediaFaturamento + ";\n"
     );
 }
 
 function calculaFaturamentos() {
-    const dataJson = arquivoJson();
+    const dataJson = lerArquivoJson();
     const valorResultado = [];
 
     valorResultado.push(menorFaturamento(dataJson));
@@ -32,6 +32,8 @@ function menorFaturamento(objetoJson) {
     };
 
     const valorMinimo = objetoJson.forEach(valor => {
+
+
         if (valor.valor != 0) {
             if (valorAtual.valor === 0) {
                 valorAtual.valor = valor.valor;
@@ -93,130 +95,16 @@ function mediaFaturamento(objetoJson) {
     return valorAtual;
 }
 
-function arquivoJson() {
-    const objetoJson = [{
-            "dia": 1,
-            "valor": 22174.1664
-        },
-        {
-            "dia": 2,
-            "valor": 24537.6698
-        },
-        {
-            "dia": 3,
-            "valor": 26139.6134
-        },
-        {
-            "dia": 4,
-            "valor": 0.0
-        },
-        {
-            "dia": 5,
-            "valor": 0.0
-        },
-        {
-            "dia": 6,
-            "valor": 26742.6612
-        },
-        {
-            "dia": 7,
-            "valor": 0.0
-        },
-        {
-            "dia": 8,
-            "valor": 42889.2258
-        },
-        {
-            "dia": 9,
-            "valor": 46251.174
-        },
-        {
-            "dia": 10,
-            "valor": 11191.4722
-        },
-        {
-            "dia": 11,
-            "valor": 0.0
-        },
-        {
-            "dia": 12,
-            "valor": 0.0
-        },
-        {
-            "dia": 13,
-            "valor": 3847.4823
-        },
-        {
-            "dia": 14,
-            "valor": 373.7838
-        },
-        {
-            "dia": 15,
-            "valor": 2659.7563
-        },
-        {
-            "dia": 16,
-            "valor": 48924.2448
-        },
-        {
-            "dia": 17,
-            "valor": 18419.2614
-        },
-        {
-            "dia": 18,
-            "valor": 0.0
-        },
-        {
-            "dia": 19,
-            "valor": 0.0
-        },
-        {
-            "dia": 20,
-            "valor": 35240.1826
-        },
-        {
-            "dia": 21,
-            "valor": 43829.1667
-        },
-        {
-            "dia": 22,
-            "valor": 18235.6852
-        },
-        {
-            "dia": 23,
-            "valor": 4355.0662
-        },
-        {
-            "dia": 24,
-            "valor": 13327.1025
-        },
-        {
-            "dia": 25,
-            "valor": 0.0
-        },
-        {
-            "dia": 26,
-            "valor": 0.0
-        },
-        {
-            "dia": 27,
-            "valor": 25681.8318
-        },
-        {
-            "dia": 28,
-            "valor": 1718.1221
-        },
-        {
-            "dia": 29,
-            "valor": 13220.495
-        },
-        {
-            "dia": 30,
-            "valor": 8414.61
-        }
-    ]
+function lerArquivoJson() {
+    var path = require('path');
+    var fs = require('fs');
 
-    return objetoJson
+    try {
+        const data = fs.readFileSync(path.resolve(__dirname, 'dados.json'), "utf-8")
+        return JSON.parse(data);
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 module.exports = pergunta_3();
