@@ -18,10 +18,46 @@ function realizarPergunta() {
         output: process.stdout
     });
 
-    rl.question('Pergunta: ', (answer) => {
-        // TODO: Log the answer in a database
-        console.log(`Obrigado, $`);
+    rl.question('\n\nDesejo iniciar a pergunta ', (valor) => {
 
-        rl.close();
+        switch (valor) {
+
+            case "1":
+                rl.close();
+                const primeiraPergunta = require('./src/pergunta_1');
+                break;
+
+            case "2":
+                rl.close();
+                const segundaPergunta = require('./src/pergunta_2')
+                break;
+
+            case "3":
+                rl.close();
+                const terceiraPergunta = require('./src/pergunta_3')
+                break;
+
+            case "4":
+                rl.close();
+                const quartaPergunta = require('./src/pergunta_4')
+                break;
+
+            case "5":
+                rl.close();
+                const quintaPergunta = require('./src/pergunta_5')
+                break;
+
+            default:
+                rl.close();
+                console.log("Valor Escolhido Incorreto!")
+                break;
+
+        }
+
     });
+
+
+
 }
+
+iniciarProjeto();
